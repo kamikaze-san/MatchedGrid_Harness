@@ -223,7 +223,7 @@ def categories():
             for t in ORIG4:
                 rs = [r for r in R[(m, t)] if r["cat"] == c]
                 cells.append(f"{100 * np.mean([r['max_score'] >= TAU for r in rs]):.1f}" if rs else "--")
-            label = c.replace("_", " ") if i == 0 else ""
+            label = c.replace("_", "/") if i == 0 else ""
             rows.append(f"{label} & {MN[m]} & " + " & ".join(cells) + r" \\")
         if ci < len(cats) - 1:
             rows.append(r"\midrule")
@@ -237,7 +237,7 @@ def categories():
             k, n = grid(recs(j), TAU, keep=lambda r, c=c: r["cat"] == c)
             dev, _ = additive_deviance(k, n)
             cells.append(f"{int(k.sum())} & {dev:.1f} & {fmt_p(stats.chi2.sf(dev, 28))}")
-        rows.append(c.replace("_", " ") + " & " + " & ".join(cells) + r" \\")
+        rows.append(c.replace("_", "/") + " & " + " & ".join(cells) + r" \\")
     hdr = (r" & " + " & ".join(rf"\multicolumn{{3}}{{c}}{{\textbf{{{JN[j]}}}}}" for j in JORDER) + r" \\" + "\n"
            + " ".join(rf"\cmidrule(lr){{{2 + 3 * k}-{4 + 3 * k}}}" for k in range(3)) + "\n"
            + r"\textbf{Category} & " + " & ".join([r"succ. & $G^2$ & $p$"] * 3) + r" \\")
