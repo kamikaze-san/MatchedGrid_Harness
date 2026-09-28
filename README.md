@@ -5,7 +5,8 @@ Vision–Language Models*. It contains the evaluation harness (five attacks, vLL
 judging), the configurations of every run reported in the paper, and the scripts that produce every table and
 figure from the released trajectories.
 
-**Data:** the trajectories and per-turn judge scores are on the Hugging Face Hub at `<hf-dataset-id>`
+**Data:** the trajectories and per-turn judge scores are on the Hugging Face Hub at
+[kamikaze-san/MRI_Trajectories](https://huggingface.co/datasets/kamikaze-san/MRI_Trajectories)
 (gated; research use only).
 
 > **Content warning.** The harness generates attacks from harmful behaviour prompts (HarmBench, AdvBench) and
@@ -15,7 +16,8 @@ figure from the released trajectories.
 
 ```bash
 pip install -r requirements.txt
-python paper/hf_to_results.py --source <hf-dataset-id>   # rebuild results/ from the released dataset
+huggingface-cli login                                     # the dataset is gated: request access on its page first
+python paper/hf_to_results.py --source kamikaze-san/MRI_Trajectories   # rebuild results/ from the released dataset
 python paper/build_tables.py      # Table 1 and per-cell ASR  -> analysis/
 python paper/decompose.py         # decomposition and interaction test (Section 5.2)
 python paper/judges.py            # judge agreement (Table 3, Section 5.3)
@@ -85,7 +87,8 @@ Then run the `paper/` scripts as above on your own `results/`.
 @inproceedings{thamatam2026ranking,
   title     = {Method Ranking Inverts Across Targets: A Matched-Grid Evaluation of Jailbreak Attacks on Open-Weight Vision--Language Models},
   author    = {Thamatam, Venkat Aniruddh and Majhi, Vasudev and Nagda, Aaryan and Challa, Jagat Sesh and Mandal, Murari and Sinha, Yash and Kumar, Dhruv},
-  booktitle = {TODO: venue},
-  year      = {TODO}
+  booktitle = {Proceedings of the Asia-Pacific Chapter of the Association for Computational Linguistics and the International Joint Conference on Natural Language Processing (AACL-IJCNLP)},
+  address   = {Hengqin, China},
+  year      = {2026}
 }
 ```
