@@ -1,0 +1,15 @@
+{
+  "cell_id": "PILOT_minicpm_v26_pair_seed1",
+  "target": "openbmb/MiniCPM-V-2_6",
+  "target_port": 8001,
+  "attacker": "Qwen/Qwen2.5-7B-Instruct",
+  "attacker_port": 8002,
+  "judge": "Qwen/Qwen2.5-7B-Instruct",
+  "judge_port": 8002,
+  "method": "pair",
+  "seed": 1,
+  "n_requests": 200,
+  "k_turns": 6,
+  "harmbench_path": "data/harmbench.jsonl",
+  "output_dir": "results/PILOT_minicpm_v26_pair_seed1"
+}

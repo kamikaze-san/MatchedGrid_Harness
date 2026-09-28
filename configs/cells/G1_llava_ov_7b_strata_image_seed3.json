@@ -1,0 +1,15 @@
+{
+  "cell_id": "G1_llava_ov_7b_strata_image_seed3",
+  "target": "llava-hf/llava-onevision-qwen2-7b-ov-hf",
+  "target_port": 8001,
+  "attacker": "Qwen/Qwen2.5-7B-Instruct",
+  "attacker_port": 8002,
+  "judge": "Qwen/Qwen2.5-7B-Instruct",
+  "judge_port": 8002,
+  "method": "strata_image",
+  "seed": 3,
+  "n_requests": 200,
+  "k_turns": 6,
+  "harmbench_path": "data/harmbench.jsonl",
+  "output_dir": "results/G1_llava_ov_7b_strata_image_seed3"
+}

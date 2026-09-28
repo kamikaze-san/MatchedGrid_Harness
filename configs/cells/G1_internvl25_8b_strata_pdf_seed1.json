@@ -1,0 +1,15 @@
+{
+  "cell_id": "G1_internvl25_8b_strata_pdf_seed1",
+  "target": "OpenGVLab/InternVL2_5-8B",
+  "target_port": 8001,
+  "attacker": "Qwen/Qwen2.5-7B-Instruct",
+  "attacker_port": 8002,
+  "judge": "Qwen/Qwen2.5-7B-Instruct",
+  "judge_port": 8002,
+  "method": "strata_pdf",
+  "seed": 1,
+  "n_requests": 200,
+  "k_turns": 6,
+  "harmbench_path": "data/harmbench.jsonl",
+  "output_dir": "results/G1_internvl25_8b_strata_pdf_seed1"
+}

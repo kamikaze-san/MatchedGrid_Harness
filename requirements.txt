@@ -1,0 +1,18 @@
+# Harness (runs used exactly these versions)
+vllm==0.7.3
+transformers==4.49.0
+accelerate
+reportlab
+pillow
+pymupdf
+pyyaml
+requests
+huggingface_hub
+
+# Analysis (paper/)
+numpy
+pandas
+scipy
+statsmodels
+pyarrow
+datasets
