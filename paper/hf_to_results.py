@@ -50,7 +50,10 @@ def main():
             for r in recs:
                 traj = [{"turn": t["turn"], "user_text": t["user_text"], "modality_text": t["rendered_text"],
                          "attacker_plan": t["attacker_plan"], "attacker_raw": t["attacker_output"],
-                         "target_response": t["target_response"]} for t in r["turns"]]
+                         # errored turns are released without the server's error text; restore the marker
+                         # the analysis uses to exclude them
+                         "target_response": "[target_error]" if t["errored"] else t["target_response"]}
+                        for t in r["turns"]]
                 # run-time judge score = primary judge on the last analysed turn (they agree exactly; Appendix O)
                 used = [t for t in r["turns"] if t["analysed"] and (t["scores"] or {}).get("qwen2.5-7b")]
                 final = used[-1]["scores"]["qwen2.5-7b"]["score"] if used else None
